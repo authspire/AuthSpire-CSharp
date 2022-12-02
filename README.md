@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://authspire.com"><img src="https://authspire.com/images/logo.png" alt="AuthSpire" width="200"></a>
+  <a href="https://authspire.com"><img src="https://i.ibb.co/KxvFZ5B/logo.png" alt="AuthSpire" width="200"></a>
   <br>
   AuthSpire
   <br>
