@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">A secure licensing & authentication solution.</h4>
+<h4 align="center">A FREE and secure licensing & authentication solution.</h4>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
