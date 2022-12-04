@@ -94,6 +94,13 @@ To add a log you can call this method.
 
 <img src="https://i.ibb.co/xGDtGBM/addlog.png">
 
+<b>Getting Variables</b>
+
+You can store server-sided strings. Your application can then retrieve these strings with a secret key that will be generated in your panel
+when you generate your variable. This protects your strings from being decompiled or cracked.
+
+<img src="https://i.ibb.co/dt49vrD/variable.png">
+
 ## License
 
 MIT
