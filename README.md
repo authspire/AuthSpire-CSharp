@@ -13,6 +13,7 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
+  <a href="#functions">API Functions</a> •
 </p>
 
 <div align="center">
@@ -59,6 +60,8 @@ Public Key: Public Key for encryption found in the dashboard<br>
 <br>
 
 <img src="https://i.ibb.co/Xtm9nJd/Screenshot-2022-12-04-061841.png">
+
+## Functions
 
 ## License
 
