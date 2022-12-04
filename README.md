@@ -12,7 +12,6 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
   <a href="#functions">API Functions</a> •
 </p>
 
@@ -62,6 +61,12 @@ Public Key: Public Key for encryption found in the dashboard<br>
 <img src="https://i.ibb.co/Xtm9nJd/Screenshot-2022-12-04-061841.png">
 
 ## Functions
+
+Initializing your application<br>
+Before using any other functions it is necessary to initialize your application with our server and retrieve all data.
+This can be done by calling this method.
+
+<img src="https://i.ibb.co/f93jbf0/init.png">
 
 ## License
 
