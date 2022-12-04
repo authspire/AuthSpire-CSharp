@@ -32,8 +32,8 @@
   - Block users by IP or a Unique Identifier from accessing your application
 * Logging
   - Handle all logs and see what is happening inside of your application
-* Secure Encryption
-  - Encrpytion using AES 256 (Advanced Encryption Standard)
+* Hybrid Encryption System
+  - Encrpytion combined using AES 256 (Advanced Encryption Standard) and RSA to ensure the most security
 
 ## How To Use
 
@@ -55,9 +55,10 @@ Name: Name of your application in the dashboard<br>
 UserID: UserID found in your account page<br>
 Secret: Secret of your application in the dashboard<br>
 Version: Version 1.0 by default (for updates change the version accordingly)<br>
+Public Key: Public Key for encryption found in the dashboard<br>
 <br>
 
-<img src="https://i.ibb.co/C7NYZ8S/1.png">
+<img src="https://i.ibb.co/Xtm9nJd/Screenshot-2022-12-04-061841.png">
 
 ## License
 
