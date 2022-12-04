@@ -33,7 +33,7 @@
 * Logging
   - Handle all logs and see what is happening inside of your application
 * Hybrid Encryption System
-  - Encrpytion combined using AES 256 (Advanced Encryption Standard) and RSA to ensure the most security
+  - Encryption combined using AES 256 (Advanced Encryption Standard) and RSA to ensure the most security
 
 ## How To Use
 
