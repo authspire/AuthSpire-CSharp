@@ -62,11 +62,37 @@ Public Key: Public Key for encryption found in the dashboard<br>
 
 ## Functions
 
-Initializing your application<br>
+<b>Initializing your application</b>
+
 Before using any other functions it is necessary to initialize your application with our server and retrieve all data.
 This can be done by calling this method.
 
 <img src="https://i.ibb.co/f93jbf0/init.png">
+
+<b>Register a user</b>
+
+To register and add a new user to your application you will first require a valid license key which you can generate in 
+your authspire dashboard in your selected application.
+
+Register a user by calling this method and validate the registration
+
+<img src="https://i.ibb.co/tPzBY8v/register.png">
+
+
+<b>Authenticate a user</b>
+
+To login and add retrieve all user data you can call this method
+
+<img src="https://i.ibb.co/84Rjb42/login.png">
+
+
+<b>Adding logs</b>
+
+Sometimes it is necessary to have an overview of what is going on inside your application. For that you can use logs
+
+To add a log you can call this method.
+
+<img src="https://i.ibb.co/xGDtGBM/addlog.png">
 
 ## License
 
