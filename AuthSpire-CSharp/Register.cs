@@ -41,5 +41,12 @@ namespace AuthSpire_CSharp
         {
             Environment.Exit(0);
         }
+
+        private void linkLabelLicenseOnly_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            License license = new License();
+            this.Hide();
+            license.Show();
+        }
     }
 }

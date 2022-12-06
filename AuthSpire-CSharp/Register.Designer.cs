@@ -39,6 +39,8 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.linkLabelLogin = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
+            this.linkLabelLicenseOnly = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonRegister
@@ -135,11 +137,33 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Already have an account?";
             // 
+            // linkLabelLicenseOnly
+            // 
+            this.linkLabelLicenseOnly.AutoSize = true;
+            this.linkLabelLicenseOnly.Location = new System.Drawing.Point(632, 226);
+            this.linkLabelLicenseOnly.Name = "linkLabelLicenseOnly";
+            this.linkLabelLicenseOnly.Size = new System.Drawing.Size(103, 13);
+            this.linkLabelLicenseOnly.TabIndex = 17;
+            this.linkLabelLicenseOnly.TabStop = true;
+            this.linkLabelLicenseOnly.Text = "Click here to register";
+            this.linkLabelLicenseOnly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLicenseOnly_LinkClicked);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(631, 207);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Register with only a license?";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabelLicenseOnly);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.linkLabelLogin);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -172,5 +196,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.LinkLabel linkLabelLogin;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel linkLabelLicenseOnly;
+        private System.Windows.Forms.Label label6;
     }
 }

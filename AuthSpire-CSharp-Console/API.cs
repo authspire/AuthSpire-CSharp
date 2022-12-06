@@ -9,9 +9,10 @@ using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace AuthSpire_CSharp_Console
+namespace AuthSpire_CSharp
 {
     public class API
     {
@@ -37,6 +38,7 @@ namespace AuthSpire_CSharp_Console
             public static string InvalidLoginInfo = "Invalid login information!";
             public static string InvalidLogInfo = "Invalid log information!";
             public static string LogLimitReached = "You can only add a maximum of 50 logs as a free user, upgrade to premium to enjoy no log limits!";
+            public static string UserLimitReached = "You can only add a maximum of 30 users as a free user, upgrade to premium to enjoy no user limits!";
             public static string FailedToAddLog = "Failed to add log, contact the provider!";
             public static string InvalidApplication = "Application could not be initialized, please check your public key, userid, app name & secret.";
             public static string ApplicationPaused = "This application is currently under construction, please try again later!";
@@ -335,6 +337,11 @@ namespace AuthSpire_CSharp_Console
             {
                 return true;
             }
+            else if (response_status == "user_limit_reached")
+            {
+                Error(Messages.UserLimitReached);
+                return false;
+            }
             else if (response_status == "invalid_details")
             {
                 Error(Messages.RegisterInvalidDetails);
@@ -375,7 +382,7 @@ namespace AuthSpire_CSharp_Console
         /// Registers user by only using his license (has to be run twice, first time for registering, second time for logging in and retrieving user data)
         /// </summary>
         /// <param name="license">License Key</param>
-        public bool LicenseOnly(string license)
+        public bool License(string license)
         {
             if (!initialized)
             {
@@ -389,20 +396,97 @@ namespace AuthSpire_CSharp_Console
                 return false;
             }
 
-            if (Login(license, license))
+
+            key = randomKey(32);
+            iv = randomKey(16);
+
+            var reqparm = new System.Collections.Specialized.NameValueCollection();
+            reqparm.Add("action", Convert.ToBase64String(Encoding.Default.GetBytes("license")));
+            reqparm.Add("userid", Convert.ToBase64String(Encoding.Default.GetBytes(userid)));
+            reqparm.Add("app_name", Convert.ToBase64String(Encoding.Default.GetBytes(app_name)));
+            reqparm.Add("secret", aes_encrypt(secret, key, iv));
+            reqparm.Add("license", aes_encrypt(license, key, iv));
+            reqparm.Add("hwid", aes_encrypt(GetHWID(), key, iv));
+            reqparm.Add("iv", rsa.Encrypt(iv));
+            reqparm.Add("key", rsa.Encrypt(key));
+
+            string req = Post(reqparm);
+            var response = JObject.Parse(req);
+
+            string response_status = response["status"].ToString();
+
+            if (response_status == "ok")
             {
+                user.Username = aes_decrypt(response["username"].ToString(), key, iv);
+                user.Email = aes_decrypt(response["email"].ToString(), key, iv);
+                user.IP = aes_decrypt(response["ip"].ToString(), key, iv);
+                user.Expires = aes_decrypt(response["expires"].ToString(), key, iv);
+                user.HWID = aes_decrypt(response["hwid"].ToString(), key, iv);
+                user.Last_Login = aes_decrypt(response["last_login"].ToString(), key, iv);
+                user.Created_At = aes_decrypt(response["created_at"].ToString(), key, iv);
+                user.Variable = aes_decrypt(response["variable"].ToString(), key, iv);
+                user.Level = aes_decrypt(response["level"].ToString(), key, iv);
+                string app_variables = aes_decrypt(response["app_variables"].ToString(), key, iv);
+                foreach (string app_variable in app_variables.Split(';'))
+                {
+                    string[] app_variable_split = app_variable.Split(':');
+                    try
+                    {
+                        Variables.Add(app_variable_split[0], app_variable_split[1]);
+                    }
+                    catch { }
+                }
+
                 return true;
+            }
+            else if (response_status == "invalid_user")
+            {
+                Error(Messages.InvalidUserCredentials);
+                return false;
+            }
+            else if (response_status == "user_limit_reached")
+            {
+                Error(Messages.UserLimitReached);
+                return false;
+            }
+            else if (response_status == "invalid_license")
+            {
+                Error(Messages.RegisterInvalidLicense);
+                return false;
+            }
+            else if (response_status == "license_expired")
+            {
+                Error(Messages.UserLicenseExpired);
+                return false;
+            }
+            else if (response_status == "invalid_hwid")
+            {
+                Error(Messages.UserLicenseTaken);
+                return false;
+            }
+            else if (response_status == "banned")
+            {
+                Error(Messages.UserBanned);
+                return false;
+            }
+            else if (response_status == "license_taken")
+            {
+                Error(Messages.UserLicenseTaken);
+                return false;
+            }
+            else if (response_status == "blacklisted")
+            {
+                Error(Messages.UserBlacklisted);
+                return false;
+            }
+            else if (response_status == "vpn_blocked")
+            {
+                Error(Messages.VPNBlocked);
+                return false;
             }
             else
             {
-                if (Register(license, license, license, license))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
         }
 

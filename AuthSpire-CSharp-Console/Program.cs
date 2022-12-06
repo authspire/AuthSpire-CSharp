@@ -88,9 +88,7 @@ Yb  dP                        db
                 Console.Write("License: ");
                 string license = Console.ReadLine();
 
-
-                bool loggedIn = authSpire.LicenseOnly(license);
-                if (loggedIn)
+                if (authSpire.License(license))
                 {
                     Console.WriteLine("Welcome back " + authSpire.user.Username);
                     Console.WriteLine();

@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
+    <Compile Include="License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License.Designer.cs">
+      <DependentUpon>License.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="License.resx">
+      <DependentUpon>License.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,7 +99,6 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

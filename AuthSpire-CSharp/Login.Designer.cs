@@ -35,6 +35,8 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabelRegister = new System.Windows.Forms.LinkLabel();
+            this.linkLabelLicenseOnly = new System.Windows.Forms.LinkLabel();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxUsername
@@ -99,11 +101,33 @@
             this.linkLabelRegister.Text = "Click here to register";
             this.linkLabelRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegister_LinkClicked);
             // 
+            // linkLabelLicenseOnly
+            // 
+            this.linkLabelLicenseOnly.AutoSize = true;
+            this.linkLabelLicenseOnly.Location = new System.Drawing.Point(619, 182);
+            this.linkLabelLicenseOnly.Name = "linkLabelLicenseOnly";
+            this.linkLabelLicenseOnly.Size = new System.Drawing.Size(91, 13);
+            this.linkLabelLicenseOnly.TabIndex = 9;
+            this.linkLabelLicenseOnly.TabStop = true;
+            this.linkLabelLicenseOnly.Text = "Click here to login";
+            this.linkLabelLicenseOnly.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLicenseOnly_LinkClicked);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(618, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Login with only a license?";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 447);
+            this.Controls.Add(this.linkLabelLicenseOnly);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.linkLabelRegister);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonLogin);
@@ -128,5 +152,7 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabelRegister;
+        private System.Windows.Forms.LinkLabel linkLabelLicenseOnly;
+        private System.Windows.Forms.Label label4;
     }
 }
