@@ -101,6 +101,12 @@ when you generate your variable. This protects your strings from being decompile
 
 <img src="https://i.ibb.co/dt49vrD/variable.png">
 
+<b>Authenticate with only a license</b>
+
+Sometimes you want to keep it simple. A user can register/login with only using a license. For this you can use this function
+
+<img src="https://i.ibb.co/pxPx4cw/licenseonly.png">
+
 ## License
 
 MIT
